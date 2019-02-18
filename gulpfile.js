@@ -2,7 +2,7 @@
  * @Author: vk 
  * @Date: 2019-02-18 08:49:48 
  * @Last Modified by: mikey.zhaopeng
- * @Last Modified time: 2019-02-18 09:17:33
+ * @Last Modified time: 2019-02-18 09:31:24
  */
 var gulp = require('gulp');
 var minCss = require("gulp-clean-css");
@@ -73,4 +73,4 @@ gulp.task("bJs", function() {
     //管理开发任务
 gulp.task("dev", gulp.series("sass", 'webserver', 'watch'));
 //管理线上任务
-gulp.task("bulid", gulp.parallel('uglify', 'bCss', 'bJs', 'webserver', 'watch'));
+gulp.task("bulid", gulp.parallel('sass', 'uglify', 'bCss', 'bJs', 'webserver', 'watch'));
