@@ -2,7 +2,7 @@
  * @Author: vk 
  * @Date: 2019-02-18 08:49:48 
  * @Last Modified by: mikey.zhaopeng
- * @Last Modified time: 2019-02-18 09:42:38
+ * @Last Modified time: 2019-02-18 09:46:05
  */
 var gulp = require('gulp'); //引入gulp
 var minCss = require("gulp-clean-css"); //压缩css
@@ -26,7 +26,7 @@ gulp.task("sass", function() {
 gulp.task("watch", function() {
         return gulp.watch('./src/scss/*.scss', gulp.series('sass'))
     })
-    //压缩js 合并
+    //压缩js 合并 编译js
 gulp.task('uglify', function() {
     return gulp.src('./src/js/*.js')
         .pipe(uglify())
