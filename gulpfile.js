@@ -2,14 +2,15 @@
  * @Author: vk 
  * @Date: 2019-02-18 08:49:48 
  * @Last Modified by: mikey.zhaopeng
- * @Last Modified time: 2019-02-18 09:31:24
+ * @Last Modified time: 2019-02-18 09:42:38
  */
-var gulp = require('gulp');
-var minCss = require("gulp-clean-css");
-var sass = require("gulp-sass");
-var webserver = require("gulp-webserver");
-var concat = require('gulp-concat');
-var uglify = require("gulp-uglify");
+var gulp = require('gulp'); //引入gulp
+var minCss = require("gulp-clean-css"); //压缩css
+var sass = require("gulp-sass"); //编译sass
+var webserver = require("gulp-webserver"); //起服务
+var concat = require('gulp-concat'); //合并文件
+var uglify = require("gulp-uglify"); //压缩js
+var babel = require('gulp-babel'); //编译js
 var url = require("url");
 var path = require("path");
 var fs = require("fs");
@@ -29,6 +30,9 @@ gulp.task("watch", function() {
 gulp.task('uglify', function() {
     return gulp.src('./src/js/*.js')
         .pipe(uglify())
+        .pipe(babel({
+            presets: ['@babel/env']
+        }))
         .pipe(concat('all.js')) //合并
         .pipe(gulp.dest('./src/dist/js'))
 })
